@@ -36,14 +36,14 @@
 	   append  file=/cdrom/preseed/custom.seed debian-installer/locale=en_US console-setup/layoutcode=us keyboard-configuration/layoutcode=us console-setup/ask_detect=false localechooser/translation/warn-light=true localechooser/translation/warn-severe=true initrd=/install/initrd.gz root=/dev/ram rw quiet</pre>
 * 要绕过在启动时按Enter键，需在`/isolinux/isolinux.cfg`中将超时值从0更改为10
 	* <pre>root@root:~/Desktop/dir2# cat isolinux/isolinux.cfg
-	 /# D-I config version 2.0
-	 /# search path for the c32 support libraries (libcom32, libutil etc.)
-	 path 
-	 include menu.cfg
-	 default vesamenu.c32
-	 prompt 0
-	 timeout 10
-	 ui gfxboot bootlogo</pre>
+		 D-I config version 2.0
+		 search path for the c32 support libraries (libcom32, libutil etc.)
+		 path 
+		 include menu.cfg
+		 default vesamenu.c32
+		 prompt 0
+		 timeout 10
+		 ui gfxboot bootlogo</pre>
 ### step3 打包镜像文件
 * <pre>root@mark-VirtualBox:~# mkisofs -D -r -V "ATTENDLESS_UBUNTU" \
 	>      -cache-inodes -J -l -b isolinux/isolinux.bin \
